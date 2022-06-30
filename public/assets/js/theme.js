@@ -18,6 +18,15 @@ var docReady = function docReady(fn) {
   } else {
     setTimeout(fn, 1);
   }
+
+  
+  var myModal = new bootstrap.Modal(document.getElementById("modalHelpLattePrincipal"), {});
+  document.onreadystatechange = function () {
+    if(localStorage.getItem("noticiasLatte") !== "v1") {
+     myModal.show();
+    }
+    localStorage.setItem("noticiasLatte", "v1");
+  };
 };
 
 var resize = function resize(fn) {
